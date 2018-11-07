@@ -15,6 +15,43 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
+    
+    /**
+     * @Route("/stats", name="product_stats", methods="GET")
+     */
+    public function stats(ProductRepository $productRepository): Response
+    {
+        $stats = [
+          'totalProducts' => 25,
+          'onStock' => 12,
+          'bestseller' => 'mobilní telefon Alcatel',
+          'lastUpdate' => '2018-10-11 16:20'
+        ];
+         return $this->render('product/stats.html.twig',['stats'=> $stats]);
+    }
+    
+    /**
+     * @Route("/demo", name="product_demo", methods="GET")
+     */
+    public function demo(ProductRepository $productRepository): Response
+    {
+        $product = new Product();
+        $product->id = 22;
+        return $this->render('product/demo.html.twig', 
+        ['day'=>['today' => 'Sunday'],
+        'product'=>$product,
+        'today'=> '2018-11-01']);
+    }
+    
+    /**
+     * @Route("/", name="product_index", methods="GET")
+     */
+    public function index(ProductRepository $productRepository): Response
+    {
+        return $this->render('product/index.html.twig', 
+        ['products' => $productRepository->findAll()]);
+    }
+    
     /**
      * @Route("/new", name="product_new", methods="GET|POST")
      */

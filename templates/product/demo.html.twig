@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{{ day.today }}
+<br>
+{{ product.id }}
+<br>
+{{day.today|upper}}
+{{today|date("m/d/Y")}}
+
+{%if product.id == 22 %}
+ANO
+{% endif %}

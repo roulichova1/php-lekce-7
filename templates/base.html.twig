@@ -3,10 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <style>
+                a:focus {font-weight: bold;}
+            </style>
+        
+        {% endblock %}
     </head>
     <body>
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li><a href="{{ path('product_index') }}">Seznam produktů</a></li>
+                    <li><a href="{{ path('purchase_order_index') }}"> Seznam objednávek </a></li>
+                    <li><a href="{{ path('product_new') }}">Nový produkt</a></li>
+                    <li><a href="{{ path('purchase_order_new') }}"> Nová objednávka </a></li>
+                </ul>
+            {% endblock %}
+        
+
+        
         {% block body %}{% endblock %}
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>

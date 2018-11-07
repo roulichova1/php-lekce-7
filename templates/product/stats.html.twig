@@ -1,0 +1,19 @@
+
+{{ stats.totalProducts }}
+<br>
+{{ stats.onStock }}
+<br>
+{{ stats.bestseller|capitalize }}
+<br>
+{{ stats.lastUpdate|date("d. m. Y") }}
+<br>
+<br>
+{% for stat in stats %}
+{{stat}}
+<br>
+{% endfor %}
+<br>
+<br>
+
+<a href="{{ path('product_index') }}">Produkty</a>
+
