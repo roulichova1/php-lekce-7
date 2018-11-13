@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}test{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Programovací jazyk, který umím</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for polozka in programming_language %}
+      <td>{{ polozka.test_string}}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+  
+{% endblock %}
+

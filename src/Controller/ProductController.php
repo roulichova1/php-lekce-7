@@ -15,6 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
+    /**
+     * @Route("/", name="product_index", methods="GET")
+     */
+    public function index(ProductRepository $productRepository): Response
+    {
+        return $this->render('product/index.html.twig', 
+        ['products' => $productRepository->findAll()]);
+    }
     
     /**
      * @Route("/stats", name="product_stats", methods="GET")
@@ -41,16 +49,7 @@ class ProductController extends AbstractController
         ['day'=>['today' => 'Sunday'],
         'product'=>$product,
         'today'=> '2018-11-01']);
-    }
-    
-    /**
-     * @Route("/", name="product_index", methods="GET")
-     */
-    public function index(ProductRepository $productRepository): Response
-    {
-        return $this->render('product/index.html.twig', 
-        ['products' => $productRepository->findAll()]);
-    }
+    }   
     
     /**
      * @Route("/new", name="product_new", methods="GET|POST")

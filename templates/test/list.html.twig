@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}test{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+       
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Programovací jazyk</th>
+      <th scope="col">Umím</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    {% for polozka in programming_language %}
+      <td>{{ polozka.test_string}}</td>
+      <td>{% if polozka.test_boolean == 0 %} {{ true }} {% else %} {{ false }} {% endif %}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+  
+{% endblock %}
+
