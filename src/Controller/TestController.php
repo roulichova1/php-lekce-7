@@ -33,12 +33,10 @@ class TestController extends AbstractController
     }
     
     /**
-     * @Route("/test/{id}", name="test")
+     * @Route("/test/{id}", name="test_show")
      */
     public function show(PurchaseOrder $purchaseOrder): Response
     {
     return $this->render('test/detail.html.twig', ['purchaseOrder' => $purchaseOrder]);
-    }  
-    
-    
+    }   
 }
